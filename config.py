@@ -20,3 +20,15 @@ def SalvaArquivo(nome_arquivo, dicionario):
   arquivo = open(nome_arquivo, "wb")
   pickle.dump(dicionario, arquivo)
   arquivo.close()
+  
+def LerArquivo(nome_arquivo,dicionario):
+  try:
+    arquivo = open(nome_arquivo, "rb")
+    dicionario = pickle.load(arquivo)
+    arquivo.close()
+    
+  except:
+    arquivo = open(nome_arquivo, "wb")
+    arquivo.close()
+
+  return dicionario
