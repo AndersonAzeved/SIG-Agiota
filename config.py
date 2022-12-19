@@ -32,3 +32,6 @@ def LerArquivo(nome_arquivo,dicionario):
     arquivo.close()
 
   return dicionario
+
+def CpfJaCadastrado(cpf):
+    
