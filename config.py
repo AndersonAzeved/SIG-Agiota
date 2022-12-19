@@ -3,6 +3,7 @@ import pickle
 
 def CadastrarUsuario():
     sistema = {}
+    lerSis = {}
     print("Cadastramento do Usuário")
     cpf = input("CPF: ")
     cpf = WhileCpf(cpf)
@@ -33,5 +34,11 @@ def LerArquivo(nome_arquivo,dicionario):
 
   return dicionario
 
-def CpfJaCadastrado(cpf):
+def CpfJaCadastrado(cpf,dicionario):
+    LerArquivo("files/sistema.dat")
     
+def VerificarIndice(dicionario,indice):
+  if indice in dicionario:
+    return True
+  else:
+    return False
