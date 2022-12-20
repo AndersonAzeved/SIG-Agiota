@@ -6,7 +6,7 @@ def CadastrarDevedor(dicionario):
   cpf = input("CPF: ")
   cpf = TirarPontosCpf(WhileCpf(cpf,dicionario,1))
   nome = input("Nome: ")
-  dicionario[cpf] = [nome,{}]
+  dicionario[cpf] = [nome]
 
 def WhileCpf(cpf,dicionario,op):
   if not biblioteca.ValidaCpf(cpf):
@@ -16,7 +16,7 @@ def WhileCpf(cpf,dicionario,op):
       while VerificarIndice(dicionario,cpf):
         if op == 1:
           cpf = TirarPontosCpf(input("CPF Já Cadastrado! Tente Novamente: "))
-        else:
+        elif op == 2:
           cpf = TirarPontosCpf(input("CPF Não Cadastrado! Tente Novamente: "))
   return cpf
 
@@ -51,18 +51,21 @@ def TirarPontosCpf(cpf):
 
 def CadastrarDividas(dicionario):
   cpf = TirarPontosCpf(input("Informe o CPF do Devedor: "))
-  cpf = WhileCpf(cpf, dicionario, 2)
+  cpf = WhileCpf(cpf, dicionario, 3)
   nome_compra = input("Nome da Compra: ")
   valor = input("Valor da Compra: ")
-  op = input("Pagamento a prazo (SIM-S ou NÃO-N): ").lower()
-  while not(op == "sim" or op == "s") or not(op == "não" or op == "n" or op == "nao"):
+  op = input("Pagamento a prazo (SIM-1 ou NÃO-2): ")
+  while op < "1" and op > "2":
     op = input("Informação Inválida, Tente Novamente!\nPagamento a prazo (SIM-S ou NÃO-N): ").lower()
-  if op == "sim" or op == "s":
+  prazo = False
+  parcela = False
+  if op == "1":
     prazo = input("Em quantas vezes? ")
     parcela = input("Valor das Parcelas: ")
-  else:
-    parcela = input("Valor àvista: ")
   data = input("Informe a data da compra: ")
+  cartao = TirarPontosCpf(input("Informe o CPF do Cartão: "))
+  cartao = WhileCartao(cpf,dicionario,2)
+  dicionario[cpf] = [nome_compra,valor,prazo,parcela,data,cartao]
 
 def CadastrarCartao(dicionario):
   cpf = TirarPontosCpf(input("Informe o CPF do dono do cartão: "))
@@ -78,6 +81,6 @@ def WhileCartao(cpf,dicionario,op):
       while VerificarIndice(dicionario,cpf):
         if op == 1:
           cpf = TirarPontosCpf(input("Cartão Já Cadastrado! Tente Novamente: "))
-        else:
+        elif op == 2:
           cpf = TirarPontosCpf(input("Cartão Não Cadastrado! Tente Novamente: "))
   return cpf

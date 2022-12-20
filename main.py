@@ -2,6 +2,7 @@ import config
 
 sistema = {}
 cartao = {}
+dividas = {}
 
 op = input(""
     "////////////////////////////////////\n"
@@ -21,6 +22,7 @@ op = input(""
 while op != "0":
     sistema = config.LerArquivo("files/sistema.dat",sistema)
     cartao = config.LerArquivo("files/cartao.dat",cartao)
+    dividas = config.LerArquivo("files/dividas.dat",dividas)
     if op == "1":
         print(""
             "////////////////////////////////////\n"
@@ -39,7 +41,8 @@ while op != "0":
             "///                              ///\n"
             "////////////////////////////////////\n"
             "")
-        config.CadastrarDividas()
+        config.CadastrarDividas(dividas)
+        config.SalvaArquivo("files/dividas.dat",dividas)
     elif op == "3":
         print(""
             "////////////////////////////////////\n"
