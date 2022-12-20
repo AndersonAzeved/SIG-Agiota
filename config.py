@@ -66,15 +66,18 @@ def CadastrarDividas(dicionario):
 
 def CadastrarCartao(dicionario):
   cpf = TirarPontosCpf(input("Informe o CPF do dono do cartão: "))
-  cpf = WhileCpf(cpf, dicionario, 2)
+  cpf = WhileCartao(cpf, dicionario, 1)
   nome = input("Como deseja chamar o cartão: ")
   dicionario[cpf] = [nome]
 
-def WhileCartao(cartao,dicionario,op):
-  if VerificarIndice(dicionario,cartao):
-      while VerificarIndice(dicionario,cartao):
+def WhileCartao(cpf,dicionario,op):
+  if not biblioteca.ValidaCpf(cpf):
+      while not biblioteca.ValidaCpf(cpf):
+          cpf = TirarPontosCpf(input("CPF Inválido! Tente Novamente: "))
+  if VerificarIndice(dicionario,cpf):
+      while VerificarIndice(dicionario,cpf):
         if op == 1:
-          cartao = TirarPontosCpf(input("Cartão Já Cadastrado! Tente Novamente: "))
+          cpf = TirarPontosCpf(input("Cartão Já Cadastrado! Tente Novamente: "))
         else:
-          cartao = TirarPontosCpf(input("Cartão Não Cadastrado! Tente Novamente: "))
-  return cartao
+          cpf = TirarPontosCpf(input("Cartão Não Cadastrado! Tente Novamente: "))
+  return cpf

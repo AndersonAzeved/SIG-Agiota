@@ -20,6 +20,7 @@ op = input(""
     "Informe a opção: ")
 while op != "0":
     sistema = config.LerArquivo("files/sistema.dat",sistema)
+    cartao = config.LerArquivo("files/cartao.dat",cartao)
     if op == "1":
         print(""
             "////////////////////////////////////\n"
