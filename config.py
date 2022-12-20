@@ -69,3 +69,12 @@ def CadastrarCartao(dicionario):
   cpf = WhileCpf(cpf, dicionario, 2)
   nome = input("Como deseja chamar o cartão: ")
   dicionario[cpf] = [nome]
+
+def WhileCartao(cartao,dicionario,op):
+  if VerificarIndice(dicionario,cartao):
+      while VerificarIndice(dicionario,cartao):
+        if op == 1:
+          cartao = TirarPontosCpf(input("Cartão Já Cadastrado! Tente Novamente: "))
+        else:
+          cartao = TirarPontosCpf(input("Cartão Não Cadastrado! Tente Novamente: "))
+  return cartao
