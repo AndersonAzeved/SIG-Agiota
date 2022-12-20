@@ -62,9 +62,9 @@ def CadastrarDividas(dicionario):
     parcela = input("Valor das Parcelas: ")
   else:
     parcela = input("Valor àvista: ")
-  data = input("Informe a data da compra: ") 
+  data = input("Informe a data da compra: ")
 
-def CadastrarCartão(dicionario):
+def CadastrarCartao(dicionario):
   cpf = TirarPontosCpf(input("Informe o CPF do dono do cartão: "))
   cpf = WhileCpf(cpf, dicionario, 2)
   nome = input("Como deseja chamar o cartão: ")
