@@ -20,6 +20,9 @@ op = input(""
     "///                              ///\n"
     "////////////////////////////////////\n"
     "Informe a opção: ")
+sistema = config.LerArquivo("sistema.dat",sistema)
+cartao = config.LerArquivo("cartao.dat",cartao)
+dividas = config.LerArquivo("dividas.dat",dividas)
 while op != "0":
     sistema = config.LerArquivo("sistema.dat",sistema)
     cartao = config.LerArquivo("cartao.dat",cartao)
@@ -57,6 +60,7 @@ while op != "0":
     
     elif op == "4":
         config.CalculandoFatura(sistema,dividas)
+        config.SalvaArquivo("sistema.dat",sistema)
     
     else:
         print(""

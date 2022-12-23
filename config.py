@@ -7,7 +7,8 @@ def CadastrarDevedor(dicionario):
   cpf = TirarPontosCpf(WhileCpf(cpf,dicionario,1))
   nome = input("Nome: ")
   status = "a"
-  dicionario[cpf] = [nome,status]
+  valorMensal = 0
+  dicionario[cpf] = [nome,valorMensal,status]
 
 def WhileCpf(cpf,dicionario,op):
   if not biblioteca.ValidaCpf(cpf):
@@ -90,13 +91,21 @@ def WhileCartao(cpf,dicionario,op):
 
 def CalculandoFatura(dicionario1,dicionario2):
   lista = []
-  soma_t = 0
+  somaTotal = 0
+  somaPessoa = 0
+  print(dicionario1)
   for i in dicionario1:
+    print(i)
     for j in dicionario2:
+      print(dicionario2)
+      print(j)
       lista = dicionario2[j]
       if i == lista[0] and lista[2] == False and lista[3] == False:
-        soma_t+=float(lista[1])
+        somaTotal+=float(lista[1])
+        somaPessoa+=float(lista[1])
       else:
-        soma_t+=float(lista[3])
-  print("Valor foi: ", soma_t)
+        somaTotal+=float(lista[3])
+        somaPessoa+=float(lista[3])
+    dicionario1[i][1] = somaPessoa
+  print("Valor foi: ", somaTotal)
       
