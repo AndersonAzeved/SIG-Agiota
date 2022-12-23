@@ -15,6 +15,7 @@ op = input(""
     "///   1. Cadastrar Devedor       ///\n"
     "///   2. Cadastrar Dívidas       ///\n"
     "///   3. Cadastrar Cartão        ///\n"
+    "///   4. Calcular Fatura         ///\n"
     "///   0. Sair                    ///\n"
     "///                              ///\n"
     "////////////////////////////////////\n"
@@ -54,12 +55,40 @@ while op != "0":
         config.CadastrarCartao(cartao)
         config.SalvaArquivo("cartao.dat",cartao)
     
+    elif op == "4":
+        config.CalculandoFatura(sistema,dividas)
+    
+    else:
+        print(""
+            "////////////////////////////////////\n"
+            "///                              ///\n"
+            "///       Opção Inválida         ///\n"
+            "///                              ///\n"
+            "////////////////////////////////////\n"
+            "")
+    
     op = input(""
+    "////////////////////////////////////\n"
+    "///                              ///\n"
+    "///         SIG-AGIOTA           ///\n"
+    "///                              ///\n"
+    "///                  by Anderson ///\n"
+    "////////////////////////////////////\n"
+    "///                              ///\n"
+    "///   1. Cadastrar Devedor       ///\n"
+    "///   2. Cadastrar Dívidas       ///\n"
+    "///   3. Cadastrar Cartão        ///\n"
+    "///   4. Calcular Fatura         ///\n"
+    "///   0. Sair                    ///\n"
+    "///                              ///\n"
+    "////////////////////////////////////\n"
+    "Informe a opção: ")
+    
+if op == "0":
+        print(""
             "////////////////////////////////////\n"
             "///                              ///\n"
-            "///   1. Cadastrar Devedor       ///\n"
-            "///   2. Cadastrar Dívidas       ///\n"
-            "///   3. Cadastrar Cartão        ///\n"
+            "///       Encerrando SIG         ///\n"
             "///                              ///\n"
             "////////////////////////////////////\n"
-            "Informe a opção: ")
+            "")

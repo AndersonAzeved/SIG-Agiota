@@ -6,7 +6,8 @@ def CadastrarDevedor(dicionario):
   cpf = input("CPF: ")
   cpf = TirarPontosCpf(WhileCpf(cpf,dicionario,1))
   nome = input("Nome: ")
-  dicionario[cpf] = [nome]
+  status = "a"
+  dicionario[cpf] = [nome,status]
 
 def WhileCpf(cpf,dicionario,op):
   if not biblioteca.ValidaCpf(cpf):
@@ -65,13 +66,15 @@ def CadastrarDividas(dicionario):
   data = input("Informe a data da compra: ")
   cartao = TirarPontosCpf(input("Informe o CPF do Cartão: "))
   cartao = WhileCartao(cpf,dicionario,2)
-  dicionario[cpf] = [nome_compra,valor,prazo,parcela,data,cartao]
+  status = "a"
+  dicionario[nome_compra] = [cpf,valor,prazo,parcela,data,cartao,status]
 
 def CadastrarCartao(dicionario):
   cpf = TirarPontosCpf(input("Informe o CPF do dono do cartão: "))
   cpf = WhileCartao(cpf, dicionario, 1)
   nome = input("Como deseja chamar o cartão: ")
-  dicionario[cpf] = [nome]
+  status = "a"
+  dicionario[cpf] = [nome,status]
 
 def WhileCartao(cpf,dicionario,op):
   if not biblioteca.ValidaCpf(cpf):
@@ -84,3 +87,16 @@ def WhileCartao(cpf,dicionario,op):
         elif op == 2:
           cpf = TirarPontosCpf(input("Cartão Não Cadastrado! Tente Novamente: "))
   return cpf
+
+def CalculandoFatura(dicionario1,dicionario2):
+  lista = []
+  soma_t = 0
+  for i in dicionario1:
+    for j in dicionario2:
+      lista = dicionario2[j]
+      if i == lista[0] and lista[2] == False and lista[3] == False:
+        soma_t+=float(lista[1])
+      else:
+        soma_t+=float(lista[3])
+  print("Valor foi: ", soma_t)
+      
