@@ -1,3 +1,4 @@
+from login import emailParaQuemVai, emailQueManda, senhaEmailDeMandar, tituloMensagem
 
 # CÓDIGO ADAPTADO DE https://techexpert.tips/pt-br/python-pt-br/python-enviar-e-mail-usando-o-gmail/
 
@@ -130,12 +131,12 @@ email_content = """
 """
  
 msg = email.message.Message()
-msg['Subject'] = 'Tutsplus Newsletter'
+msg['Subject'] = tituloMensagem
  
  
-msg['From'] = 'andersonazevedodasilva2002@gmail.com'
-msg['To'] = 'andersonsilva14.2017@gmail.com'
-password = "ygeijaafmksdnntl"
+msg['From'] = emailQueManda
+msg['To'] = emailParaQuemVai
+password = senhaEmailDeMandar
 msg.add_header('Content-Type', 'text/html')
 msg.set_payload(email_content)
  
