@@ -20,9 +20,9 @@ op = input(""
     "////////////////////////////////////\n"
     "Informe a opção: ")
 while op != "0":
-    sistema = config.LerArquivo("files/sistema.dat",sistema)
-    cartao = config.LerArquivo("files/cartao.dat",cartao)
-    dividas = config.LerArquivo("files/dividas.dat",dividas)
+    sistema = config.LerArquivo("sistema.dat",sistema)
+    cartao = config.LerArquivo("cartao.dat",cartao)
+    dividas = config.LerArquivo("dividas.dat",dividas)
     if op == "1":
         print(""
             "////////////////////////////////////\n"
@@ -32,7 +32,7 @@ while op != "0":
             "////////////////////////////////////\n"
             "")
         config.CadastrarDevedor(sistema)
-        config.SalvaArquivo("files/sistema.dat",sistema)
+        config.SalvaArquivo("sistema.dat",sistema)
     elif op == "2":
         print(""
             "////////////////////////////////////\n"
@@ -42,7 +42,7 @@ while op != "0":
             "////////////////////////////////////\n"
             "")
         config.CadastrarDividas(dividas)
-        config.SalvaArquivo("files/dividas.dat",dividas)
+        config.SalvaArquivo("dividas.dat",dividas)
     elif op == "3":
         print(""
             "////////////////////////////////////\n"
@@ -52,7 +52,7 @@ while op != "0":
             "////////////////////////////////////\n"
             "")
         config.CadastrarCartao(cartao)
-        config.SalvaArquivo("files/cartao.dat",cartao)
+        config.SalvaArquivo("cartao.dat",cartao)
     
     op = input(""
             "////////////////////////////////////\n"
