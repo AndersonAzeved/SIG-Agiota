@@ -144,6 +144,6 @@ s = smtplib.SMTP('smtp.gmail.com: 587')
 s.starttls()
  
 # Login Credentials for sending the mail
-s.login(msg['From'], password)
+s.login(msg['From'], senhaEmailDeMandar)
  
 s.sendmail(msg['From'], [msg['To']], msg.as_string())
