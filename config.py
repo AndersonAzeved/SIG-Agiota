@@ -23,7 +23,7 @@ def WhileCpf(cpf,dicionario,op):
   return cpf
 
 def SalvaArquivo(nome_arquivo, dicionario):
-  arquivo = open(nome_arquivo, "ab")
+  arquivo = open(nome_arquivo, "wb")
   pickle.dump(dicionario, arquivo)
   arquivo.close()
   
